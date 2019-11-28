@@ -11,7 +11,7 @@ scratch. This page gets rid of all links and provides the needed markup only.
     <meta http-equiv="x-ua-compatible" content="ie=edge">
     <meta name="csrf-token" content={{csrf_token()}}>
 
-    <title>Laravel Starter</title>
+    <title>開刀資料</title>
     <link rel="stylesheet" href="/css/app.css">
     <link rel="stylesheet" href="/dist/plugins/font-awesome/css/font-awesome.min.css">
     <!-- Ionicons -->
@@ -34,25 +34,48 @@ scratch. This page gets rid of all links and provides the needed markup only.
     <link href="https://fonts.googleapis.com/css?family=Source+Sans+Pro:300,400,400i,700" rel="stylesheet">
     <!-- IonIcons -->
     <link rel="stylesheet" href="http://code.ionicframework.com/ionicons/2.0.1/css/ionicons.min.css">
+    <style>
+        body, h1, h2, h3, h4, h5 {
+            font-family: '微軟正黑體'
+        }
+    </style>
 </head>
 
 <body class="hold-transition sidebar-mini">
-    @yield('content')
     <div class="wrapper" id="app">
         <!-- Header -->
-    @include('layouts.header')
+        @include('layouts.header')
+
         <!-- Sidebar -->
-    @include('layouts.sidebar')
-    @yield('content')
+        @include('layouts.sidebar')
+        <div class="content-wrapper">
+            <div class="content">
+                <div class="container-fluid">
+                    <div class="row">
+                        <div class="col-lg-12">
+                            <div class="card" style="margin-top: 80px">
+                                @yield('content')
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
         <!-- Footer -->
-    <!-- Main Footer -->
-<footer class="main-footer">
-    <!-- Default to the left -->
-    <strong>Laravel Starter </strong>
-  </footer>
+        @include('layouts.footer')
+        <!-- Main Footer -->
     </div>
     <!-- ./wrapper -->
     @yield('javascript')
-
+    <script src="/dist/plugins/jquery/jquery.min.js"></script>
+    <!-- Bootstrap -->
+    <script src="/dist/plugins/bootstrap/js/bootstrap.bundle.min.js"></script>
+    <!-- AdminLTE -->
+    <script src="/dist/js/adminlte.js"></script>
+    <!-- OPTIONAL SCRIPTS -->
+    <script src="/dist/plugins/chart.js/Chart.min.js"></script>
+    <script src="/dist/js/demo.js"></script>
+    <script src="/dist/js/pages/dashboard3.js"></script>
 </body>
+
 </html>

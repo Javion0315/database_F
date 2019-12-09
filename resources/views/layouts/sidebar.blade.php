@@ -14,7 +14,7 @@
                 <img src="/img/user.png" class="img-circle elevation-2" alt="User Image">
             </div>
             <div class="info">
-                <a href="{{ route('home') }}" class="d-block"> 開刀資料 </a>
+                <a href="{{ route('home') }}" class="d-block"> 手術管理系統 </a>
             </div>
         </div>
 
@@ -42,7 +42,7 @@
                 <li class="nav-item">
                     <a href="{{ route('operation') }}" class="nav-link">
                         <i class="nav-icon fa fa-heartbeat"></i>
-                        <p>開刀房</p>
+                        <p>手術</p>
                     </a>
                 </li>
             </ul>

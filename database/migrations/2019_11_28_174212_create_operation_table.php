@@ -17,6 +17,7 @@ class CreateOperationTable extends Migration
             $table->increments('op_id');
             $table->date('date');
             $table->integer('char_no');
+            $table->string('op_method');
             $table->string('room');
             $table->date('st_time');
             $table->date('end_time');

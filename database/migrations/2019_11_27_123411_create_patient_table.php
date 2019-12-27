@@ -19,6 +19,8 @@ class CreatePatientTable extends Migration
             $table->string('sex');
             $table->date('b_date');
             $table->timestamps();
+
+            // $table->foreign('char_no')->references('char_no')->on('admits');
         });
     }
 

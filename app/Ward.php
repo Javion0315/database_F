@@ -8,4 +8,11 @@ class Ward extends Model
 {
     //
     protected $table = 'ward';
+
+    protected $primaryKey = 'room';
+
+    protected function admits()
+    {
+        return $this->hasMany(Admit::class, 'room', 'room');
+    }
 }

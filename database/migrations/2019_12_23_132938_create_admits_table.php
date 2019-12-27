@@ -4,7 +4,7 @@ use Illuminate\Support\Facades\Schema;
 use Illuminate\Database\Schema\Blueprint;
 use Illuminate\Database\Migrations\Migration;
 
-class CreateWardTable extends Migration
+class CreateAdmitsTable extends Migration
 {
     /**
      * Run the migrations.
@@ -13,12 +13,12 @@ class CreateWardTable extends Migration
      */
     public function up()
     {
-        Schema::create('ward', function (Blueprint $table) {
-            $table->increments('room');
-            $table->string('area');
-            $table->string('type');
-
-            // $table->foreign('room')->references('room')->on('admits');
+        Schema::create('admits', function (Blueprint $table) {
+            $table->increments('id');
+            $table->integer('char_no');
+            $table->string('room');
+            $table->date('st_date');
+            $table->date('end_date');
         });
     }
 
@@ -29,6 +29,6 @@ class CreateWardTable extends Migration
      */
     public function down()
     {
-        Schema::dropIfExists('ward');
+        Schema::dropIfExists('admits');
     }
 }

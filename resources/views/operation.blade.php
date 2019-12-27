@@ -3,7 +3,10 @@
 @section('content')
 
 <!-- Content Wrapper. Contains page content -->
-<h3 class="text-primary text-center font-weight-bold">開刀房資料</h3>
+<div class="card" style="margin-top: 80px">
+    <div class="card-header">
+        <h3 class="text-primary text-center font-weight-bold">開刀房資料</h3>
+    </div>
 <table class="table table-hover text-center">
     <thead>
         <tr>
@@ -28,6 +31,7 @@
         @endforeach
     </tbody>
 </table>
+</div>
 <!-- /.content-wrapper -->
 
 @endsection

@@ -18,7 +18,12 @@ Route::get('/', function () {
 Auth::routes();
 
 Route::get('/home', 'DashboardController@index')->name('home');
-Route::get('/patient', 'DashboardController@patient')->name('patient');
+Route::group(['prefix' => 'patients'], function () {
+    Route::get('', 'DashboardController@patients')->name('patients');
+    Route::get('{patient}', 'DashboardController@patient')->name('patients.show');
+    Route::post('create', 'DashboardController@create')->name('patients.create');
+    Route::delete('{patient}', 'DashboardController@deletePatient')->name('patients.delete');
+});
 Route::get('/doctor', 'DashboardController@doctor')->name('doctor');
 Route::get('/ward', 'DashboardController@ward')->name('ward');
 Route::get('/operation', 'DashboardController@operation')->name('operation');

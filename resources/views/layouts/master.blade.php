@@ -34,6 +34,7 @@ scratch. This page gets rid of all links and provides the needed markup only.
     <link href="https://fonts.googleapis.com/css?family=Source+Sans+Pro:300,400,400i,700" rel="stylesheet">
     <!-- IonIcons -->
     <link rel="stylesheet" href="http://code.ionicframework.com/ionicons/2.0.1/css/ionicons.min.css">
+    <link href="https://cdn.datatables.net/1.10.16/css/jquery.dataTables.min.css" rel="stylesheet" />
     <style>
         body, h1, h2, h3, h4, h5 {
             font-family: '微軟正黑體'
@@ -53,9 +54,7 @@ scratch. This page gets rid of all links and provides the needed markup only.
                 <div class="container-fluid">
                     <div class="row">
                         <div class="col-lg-12">
-                            <div class="card" style="margin-top: 80px">
-                                @yield('content')
-                            </div>
+                            @yield('content')
                         </div>
                     </div>
                 </div>
@@ -67,6 +66,7 @@ scratch. This page gets rid of all links and provides the needed markup only.
     </div>
     <!-- ./wrapper -->
     @yield('javascript')
+    <script type="text/javascript" src="https://code.jquery.com/jquery-3.3.1.js"></script>
     <script src="/dist/plugins/jquery/jquery.min.js"></script>
     <!-- Bootstrap -->
     <script src="/dist/plugins/bootstrap/js/bootstrap.bundle.min.js"></script>
@@ -76,6 +76,9 @@ scratch. This page gets rid of all links and provides the needed markup only.
     <script src="/dist/plugins/chart.js/Chart.min.js"></script>
     <script src="/dist/js/demo.js"></script>
     <script src="/dist/js/pages/dashboard3.js"></script>
+    <script>
+        $.noConflict();
+    </script>
 </body>
 
 </html>

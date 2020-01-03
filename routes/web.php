@@ -24,7 +24,12 @@ Route::group(['prefix' => 'patients'], function () {
     Route::post('create', 'DashboardController@create')->name('patients.create');
     Route::delete('{patient}', 'DashboardController@deletePatient')->name('patients.delete');
 });
-Route::get('/doctor', 'DashboardController@doctor')->name('doctor');
+Route::group(['prefix' => 'doctor'], function () {
+    Route::get('', 'DashboardController@doctor')->name('doctor');
+    Route::post('create', 'DashboardController@create')->name('doctor.create');
+    Route::get('{doctor}', 'DashboardController@edit')->name('doctor.edit');
+    Route::delete('{doctor}', 'DashboardController@deleteDoctor')->name('doctor.delete');
+});
 Route::get('/ward', 'DashboardController@ward')->name('ward');
 Route::get('/operation', 'DashboardController@operation')->name('operation');
 

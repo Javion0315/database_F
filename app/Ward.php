@@ -11,6 +11,8 @@ class Ward extends Model
 
     protected $primaryKey = 'room';
 
+    public $incrementing = false;
+
     protected function admits()
     {
         return $this->hasMany(Admit::class, 'room', 'room');

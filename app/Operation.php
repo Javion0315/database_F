@@ -15,4 +15,9 @@ class Operation extends Model
     {
         return $this->belongsTo(Patient::class, 'char_no', 'char_no');
     }
+
+    protected function operate()
+    {
+        return $this->hasMany(operate::class, 'op_id', 'op_id');
+    }
 }

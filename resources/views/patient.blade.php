@@ -66,6 +66,12 @@
                         <span style="padding-left: 80px">
                             房型 : {{is_null($admit->ward) ? '-' : $admit->ward->type}} 人房
                         </span>
+                        <span style="padding-left: 80px">
+                            住院日期 : 2019-09-19
+                        </span>
+                        <span style="padding-left: 80px">
+                            出院日期 : 2019-09-28
+                        </span>
                     </li>
                     @endforeach
                 </td>

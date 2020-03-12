@@ -15,12 +15,12 @@ class AddKeyDoctorOperateTable extends Migration
     {
         Schema::disableForeignKeyConstraints();
 
-        Schema::table('operate', function (Blueprint $table) {
-            $table->foreign('op_id')->references('op_id')->on('operation')->onDelete('cascade')->onUpdate('cascade');
-        });
-        Schema::table('operate', function (Blueprint $table) {
-            $table->foreign('doc_ssn')->references('ssn')->on('doctor')->onDelete('cascade')->onUpdate('cascade');
-        });
+        // Schema::table('operate', function (Blueprint $table) {
+        //     $table->foreign('op_id')->references('op_id')->on('operation')->onDelete('cascade')->onUpdate('cascade');
+        // });
+        // Schema::table('operate', function (Blueprint $table) {
+        //     $table->foreign('doc_ssn')->references('ssn')->on('doctor')->onDelete('cascade')->onUpdate('cascade');
+        // });
 
         Schema::enableForeignKeyConstraints();
     }

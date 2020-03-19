@@ -17,4 +17,9 @@ class Doctor extends Model
     {
         return $this->hasMany(operate::class, 'ssn', 'doc_ssn');
     }
+    protected function operation()
+    {
+        return $this->belongsTo(Operation::class, 'ssn', 'ssn');
+    }
 }
+

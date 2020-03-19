@@ -17,4 +17,5 @@ class operate extends Model
     {
         return $this->belongsTo(Doctor::class, 'ssn', 'doc_ssn');
     }
+    
 }

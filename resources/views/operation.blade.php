@@ -38,18 +38,24 @@
             </tr>
             <tr>
                 <td style="display: none;" id="patient_{{$item->char_no}}" colspan="6">
+               
+                    @foreach($item->patient as $patient)
                     <li>
-                        病人 : Kevin
+                            病人 : {{is_null($patient->name) ? '-' : $patient->name}}
                         <span style="padding-left: 80px">
-                            性別 : M
+                            性別 : {{is_null($patient->sex) ? '-' : $patient->sex}}
+                        </span>
+                        @foreach($item->doctor as $doctor)
+                        <span style="padding-left: 80px">
+                            醫生 : {{is_null($doctor->name) ? '-' : $doctor->name}}
                         </span>
                         <span style="padding-left: 80px">
-                            醫師 : John
+                            部門 : {{is_null($doctor->dept) ? '-' : $doctor->dept}}
                         </span>
-                        <span style="padding-left: 80px">
-                            部門 : Chest
-                        </span>
+                        @endforeach
+                    
                     </li>
+                    @endforeach
                 </td>
             </tr>
             @endforeach

@@ -37,26 +37,59 @@
                 <td>{{ $item->end_time }}</td>
             </tr>
             <tr>
-                <td style="display: none;" id="patient_{{$item->char_no}}" colspan="6">
                
-                    @foreach($item->patient as $patient)
-                    <li>
-                            病人 : {{is_null($patient->name) ? '-' : $patient->name}}
-                        <span style="padding-left: 80px">
-                            性別 : {{is_null($patient->sex) ? '-' : $patient->sex}}
-                        </span>
-                        @foreach($item->doctor as $doctor)
-                        <span style="padding-left: 80px">
-                            醫生 : {{is_null($doctor->name) ? '-' : $doctor->name}}
-                        </span>
-                        <span style="padding-left: 80px">
-                            部門 : {{is_null($doctor->dept) ? '-' : $doctor->dept}}
-                        </span>
-                        @endforeach
-                    
-                    </li>
-                    @endforeach
-                </td>
+            
+                @foreach($item->patient as $patient)
+                    <div class="w3-container">
+                        <div id="patientInfo_{{$item->char_no}}" class="w3-modal">
+                            <div class="w3-modal-content w3-card-4 w3-animate-zoom" style="max-width:300px">
+                            <div class="w3-center"><br>
+                                <span onclick="document.getElementById('patientInfo_{{$item->char_no}}').style.display='none'"
+                                    class="w3-button w3-xlarge w3-transparent w3-display-topright"
+                                    title="Close Modal">×</span>
+                            </div>
+                            <div class="w3-center"><br>
+                                <img src="http://www.fju.edu.tw/showImg/event/event8.jpg" alt="Avatar" style="width:30%" class="w3-circle w3-margin-top">
+                            </div>
+                            <label for="date" class="col-sm-2 col-form-label"></label>
+                                <form method="POST" action="{{ route('patients.create')}}">
+                                    {{ csrf_field() }}
+                                    <div class="form-group row">
+                                        <label for="date" class="col-sm-2 col-form-label">  病人:</label>
+                                        <div class="col-sm-5">
+                                            <input type="text" name="date" class="form-control" id="date" value="{{is_null($patient->name) ? '-' : $patient->name}}">
+                                        </div>
+                                    </div>
+                                    <div class="form-group row">
+                                         <label for="date" class="col-sm-2 col-form-label">  性別:</label>
+                                        <div class="col-sm-5">
+                                            <input type="text" name="date" class="form-control" id="date" value="{{is_null($patient->sex) ? '-' : $patient->sex}}">
+                                        </div>
+                                    </div>
+                                    @foreach($item->doctor as $doctor)
+                                    <div class="form-group row">
+                                        <label for="date" class="col-sm-2 col-form-label">  醫生:</label>
+                                        <div class="col-sm-5">
+                                            <input type="text" name="date" class="form-control" id="date" value="{{is_null($doctor->name) ? '-' : $doctor->name}}">
+                                        </div>
+                                    </div>
+                            
+                                    <div class="form-group row">
+                                        <label for="date" class="col-sm-2 col-form-label">  部門:</label>
+                                        <div class="col-sm-5">
+                                            <input type="text" name="date" class="form-control" id="date" value="{{is_null($doctor->dept) ? '-' : $doctor->dept}}">
+                                        </div>
+                                    
+                                    </div>
+                                    @endforeach
+                                </form>
+                        
+                                
+                            </div>
+                        </div>
+                    </div>
+                @endforeach
+                
             </tr>
             @endforeach
         </tbody>
@@ -132,7 +165,7 @@
     });
 
     function patientInfo(info) {
-        $('#patient_' + info).toggle()
+        $('#patientInfo_' + info).show()
     }
 
 
